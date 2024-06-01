@@ -6,6 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const url = "https://node-mongodb-eight.vercel.app"
+    // const url = "http://localhost:4000"
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
@@ -41,11 +42,22 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    // const fetchFoodList = async () => {
+    //     const response = await axios.get(url + "/api/food/list");
+        
+    //     setFoodList(response.data.data)
+    // }
     const fetchFoodList = async () => {
         const response = await axios.get(url + "/api/food/list");
+        console.log(response.data.data)
+        const foodData = response.data.data.map(item => ({
+            ...item,
+            imageUrl: `${url}/images/${item.image}`
+        }));
+        console.log(foodData)
         
-        setFoodList(response.data.data)
-    }
+        setFoodList(foodData);
+    };
 
     const loadCartData = async (token) => {
         const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
