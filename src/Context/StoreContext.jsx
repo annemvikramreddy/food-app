@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
-    const url = "http://localhost:4000"
+    const url = "https://node-mongodb-eight.vercel.app"
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
@@ -43,6 +43,7 @@ const StoreContextProvider = (props) => {
 
     const fetchFoodList = async () => {
         const response = await axios.get(url + "/api/food/list");
+        
         setFoodList(response.data.data)
     }
 

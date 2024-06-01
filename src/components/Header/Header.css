@@ -1,8 +1,8 @@
 .header{
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size:contain;
+    background: url('https://res.cloudinary.com/dtaene1s4/image/upload/v1717252770/4478925_xrml4t.jpg') no-repeat;
+    background-size:cover;
     position: relative;
 }
 .header-contents{
@@ -18,7 +18,7 @@
 }
 .header-contents h2{
     font-weight:500;
-    color: white;
+    color: whitesmoke;
     font-size: max(4.5vw,22px);
 }
 .header-contents p{

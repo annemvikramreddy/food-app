@@ -7,6 +7,7 @@ const FoodItem = ({ image, name, price, desc , id }) => {
 
     const [itemCount, setItemCount] = useState(0);
     const {cartItems,addToCart,removeFromCart,url} = useContext(StoreContext);
+    console.log(image)
 
     return (
         <div className='food-item'>
