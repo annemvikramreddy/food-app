@@ -9,7 +9,8 @@ import { StoreContext } from '../../Context/StoreContext';
 const FoodItem = ({ image, name, price, desc , id,imageUrl }) => {
 
     const [itemCount, setItemCount] = useState(0);
-    const {cartItems,addToCart,removeFromCart,url} = useContext(StoreContext);
+    const {cartItems,addToCart,removeFromCart,url,token} = useContext(StoreContext);
+    console.log(token)
     
 
     const image_list =[
@@ -62,7 +63,7 @@ const FoodItem = ({ image, name, price, desc , id,imageUrl }) => {
                 <p className="food-item-desc">{desc}</p>
                 <p className="food-item-price">${price}</p>
                 <div className="food-item-name-rating">
-                    <p></p> <Link to="/cart"><button className="button">Go to Cart</button>  </Link>
+                    {!!token && <div><p></p> <Link to="/cart"><button className="button">Go to Cart</button>  </Link></div>}
                 </div>
             </div>
         </div>

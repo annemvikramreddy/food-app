@@ -12,7 +12,7 @@ const FoodDisplay = ({category}) => {
   const updateFood = food_list.filter((item)=>{
     return item.name.toLowerCase().includes(search.toLowerCase())
   })
-  console.log(updateFood)
+  // console.log(updateFood)
 
   return (
     <div className='food-display' id='food-display'>
