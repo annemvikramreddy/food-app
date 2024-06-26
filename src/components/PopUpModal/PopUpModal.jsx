@@ -4,6 +4,16 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root');
 
 const PopupModal = ({ isOpen, onRequestClose }) => {
+
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => {
+        onRequestClose();
+      }, 8000); // 5000 milliseconds = 5 seconds
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount or if isOpen changes
+    }
+  }, [isOpen, onRequestClose]);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -33,7 +43,8 @@ const PopupModal = ({ isOpen, onRequestClose }) => {
       }}
     >
       <h2 style={{ margin: '5px', color: '#333', fontSize: '24px' }}>Login Required</h2>
-      <p style={{ margin: '5px', color: '#666', fontSize: '16px' }}>You can only order food when you log into your account.</p>
+      <p style={{ margin: '5px', color: '#666', fontSize: '16px' }}>To proceed with your order or access your cart, please log in to your account.</p>
+      <p style={{ margin: '5px', color: '#666', fontSize: '16px' }}>@annemvikramreddy</p>
       <button style={{
           margin: '5px',
           padding: '10px 20px',
