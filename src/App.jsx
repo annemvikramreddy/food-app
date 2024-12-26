@@ -33,7 +33,7 @@ const App = () => {
   return (
     <>
     <ToastContainer/>
-    <PopupModal isOpen={isModalOpen} onRequestClose={closeModal} />
+    {/* <PopupModal isOpen={isModalOpen} onRequestClose={closeModal} /> */}
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin}/>
